@@ -11,7 +11,7 @@ package main
 import (
 	"fmt"
 
-	kinetic "github.com/yongzhy/kinetic-go"
+	kinetic "github.com/Kinetic/kinetic-go"
 )
 
 func setACL() {

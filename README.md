@@ -8,7 +8,7 @@ This repository contains a number of examples showing how to use Kinetic Go clie
 
 kinetic-go client library is needed to build the examples. 
 
-To install kinetic-go library : `go get github.com/yongzhy/kinetic-go`
+To install kinetic-go library : `go get github.com/Kinetic/kinetic-go`
 
 Clone this examples repository : `git clone https://github.com/yongzhy/kinetic-go-examples`
 

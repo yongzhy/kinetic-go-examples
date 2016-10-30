@@ -13,7 +13,7 @@ import (
 	"os"
 	"time"
 
-	kinetic "github.com/yongzhy/kinetic-go"
+	kinetic "github.com/Kinetic/kinetic-go"
 )
 
 var hostName01 = "127.0.0.1" // Simulator 1

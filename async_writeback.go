@@ -16,7 +16,7 @@ import (
 	"math/rand"
 	"time"
 
-	kinetic "github.com/yongzhy/kinetic-go"
+	kinetic "github.com/Kinetic/kinetic-go"
 )
 
 var option = kinetic.ClientOptions{

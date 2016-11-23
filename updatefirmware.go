@@ -9,17 +9,29 @@ package main
 
 import (
 	"fmt"
+	"flag"
 
 	kinetic "github.com/Kinetic/kinetic-go"
+	"os"
 )
 
+var host = flag.String("host", "127.0.0.1", "Kinetic device IP address")
+var file = flag.String("lod", "", "New firmware file path")
+
 func main() {
+	flag.Parse()
+
+	if file == nil || *file == "" {
+		flag.Usage()
+		os.Exit(1)
+	}
+
 	// Set the log leverl to debug
 	kinetic.SetLogLevel(kinetic.LogLevelDebug)
 
 	// Client options
 	var option = kinetic.ClientOptions{
-		Host: "127.0.0.1", // Need to test with drive
+		Host: *host, // Need to test with drive
 		Port: 8123,
 		User: 1,
 		Hmac: []byte("asdfasdf")}
@@ -30,9 +42,8 @@ func main() {
 	}
 	defer conn.Close()
 
-	file := "/change/this/to/correct/path/AD-installer-v44.01.04.slod"
-	err = kinetic.UpdateFirmware(conn, file)
+	err = kinetic.UpdateFirmware(conn, *file)
 	if err != nil {
-		fmt.Println("Firmware update fail: ", file, err)
+		fmt.Println("Firmware update fail: ", *file, err)
 	}
 }

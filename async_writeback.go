@@ -37,8 +37,8 @@ func PutGetThread(conn *kinetic.NonBlockConnection, prefix []byte, tid int, rd i
 	pentry := kinetic.Record{
 		Key:   key,
 		Value: v,
-		Sync:  kinetic.SYNC_WRITEBACK,
-		Algo:  kinetic.ALGO_SHA1,
+		Sync:  kinetic.SyncWriteThrough,
+		Algo:  kinetic.AlgorithmSHA1,
 		Tag:   []byte(""),
 		Force: true,
 	}

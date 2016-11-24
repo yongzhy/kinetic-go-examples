@@ -31,7 +31,7 @@ func setACL() {
 	defer conn.Close()
 
 	perms := []kinetic.ACLPermission{
-		kinetic.ACL_PERMISSION_GETLOG,
+		kinetic.ACLPermissionGetLog,
 	}
 	scope := []kinetic.ACLScope{
 		kinetic.ACLScope{
@@ -42,7 +42,7 @@ func setACL() {
 		kinetic.ACL{
 			Identify: 100,
 			Key:      []byte("asdfasdf"),
-			Algo:     kinetic.ACL_ALGORITHM_HMACSHA1,
+			Algo:     kinetic.ACLAlgorithmHMACSHA1,
 			Scopes:   scope,
 		},
 	}
@@ -69,13 +69,13 @@ func verifyACL() {
 	defer conn.Close()
 
 	logs := []kinetic.LogType{
-		kinetic.LOG_UTILIZATIONS,
-		kinetic.LOG_TEMPERATURES,
-		kinetic.LOG_CAPACITIES,
-		kinetic.LOG_CONFIGURATION,
-		kinetic.LOG_STATISTICS,
-		kinetic.LOG_MESSAGES,
-		kinetic.LOG_LIMITS,
+		kinetic.LogTypeUtilizations,
+		kinetic.LogTypeTemperatures,
+		kinetic.LogTypeCapacities,
+		kinetic.LogTypeConfiguration,
+		kinetic.LogTypeStatistics,
+		kinetic.LogTypeMessages,
+		kinetic.LogTypeLimits,
 	}
 
 	_, status, err := conn.GetLog(logs)
@@ -88,7 +88,7 @@ func verifyACL() {
 		fmt.Println("Get Failure: ", err)
 	}
 
-	if status.Code != kinetic.REMOTE_NOT_AUTHORIZED {
+	if status.Code != kinetic.RemoteNotAuthorized {
 		fmt.Println("SET ACL not effective, ", status)
 	}
 }

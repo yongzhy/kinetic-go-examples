@@ -49,8 +49,8 @@ func main() {
 		pentry := kinetic.Record{
 			Key:   key,
 			Value: v,
-			Sync:  kinetic.SYNC_WRITETHROUGH,
-			Algo:  kinetic.ALGO_SHA1,
+			Sync:  kinetic.SyncWriteThrough,
+			Algo:  kinetic.AlgorithmSHA1,
 			Tag:   []byte(""),
 			Force: true,
 		}
@@ -79,8 +79,8 @@ func main() {
 			pentry := kinetic.Record{
 				Key:   key,
 				Value: v,
-				Sync:  kinetic.SYNC_WRITETHROUGH,
-				Algo:  kinetic.ALGO_SHA1,
+				Sync:  kinetic.SyncWriteThrough,
+				Algo:  kinetic.AlgorithmSHA1,
 				Tag:   []byte(""),
 				Force: true,
 			}

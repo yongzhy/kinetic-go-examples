@@ -47,8 +47,8 @@ func main() {
 	entry01 := kinetic.Record{
 		Key:   key01,
 		Value: []byte(time.Now().Format(time.RFC3339Nano)),
-		Sync:  kinetic.SYNC_WRITETHROUGH,
-		Algo:  kinetic.ALGO_SHA1,
+		Sync:  kinetic.SyncWriteThrough,
+		Algo:  kinetic.AlgorithmSHA1,
 		Tag:   []byte(""),
 		Force: true,
 	}
@@ -62,8 +62,8 @@ func main() {
 	entry02 := kinetic.Record{
 		Key:   key02,
 		Value: []byte(time.Now().Format(time.RFC3339Nano)),
-		Sync:  kinetic.SYNC_WRITETHROUGH,
-		Algo:  kinetic.ALGO_SHA1,
+		Sync:  kinetic.SyncWriteThrough,
+		Algo:  kinetic.AlgorithmSHA1,
 		Tag:   []byte(""),
 		Force: true,
 	}
@@ -77,7 +77,7 @@ func main() {
 	p2pop := kinetic.P2PPushRequest{
 		HostName: hostName02,
 		Port:     8123,
-		Tls:      false,
+		TLS:      false,
 		Operations: []kinetic.P2PPushOperation{
 			kinetic.P2PPushOperation{
 				Key:   key01,

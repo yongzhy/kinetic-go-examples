@@ -40,7 +40,7 @@ func setACL() {
 	}
 	acls := []kinetic.ACL{
 		kinetic.ACL{
-			Identify: 100,
+			Identity: 100,
 			Key:      []byte("asdfasdf"),
 			Algo:     kinetic.ACLAlgorithmHMACSHA1,
 			Scopes:   scope,
